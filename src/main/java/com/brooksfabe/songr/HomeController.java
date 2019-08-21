@@ -22,8 +22,8 @@ public class HomeController {
     }
 
     @GetMapping("/hello/reverse")
-    public String getSayHello(@RequestParam(required = false, defaultValue = "friendly") String word, Model message){
-        String reversedString = new StringBuffer(word).reverse().toString();
+    public String getReversed(@RequestParam(required = false, defaultValue = "friendly") String word, Model message){
+        String reversedString = reversed(word);
         message.addAttribute("sentence", reversedString);
         return "reverseme";
     }
@@ -33,5 +33,8 @@ public class HomeController {
         message.addAttribute("capitalized",wordCapped);
         return "capitalword";
     }
-
+    public static String reversed(String word){
+        String reversedString = new StringBuffer(word).reverse().toString();
+        return reversedString;
+    }
 }
