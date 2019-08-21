@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Albums</title>
+</head>
+<body>
+    <h1>All Albums</h1>
+
+        <div th:each="album : ${albums}" class="album">
+            <h3 th:text="${album.title}"></h3>
+            <p>
+                Staring <span th:text="${album.artist}"></span>
+            </p>
+            <p>
+                Number of songs <span th:text="${album.songCount}"></span>
+            </p>
+            <p>
+                Length of album <span th:text="${album.length}"></span>
+            </p>
+        <!--    <p>-->
+        <!--        <lable>Staring</lable>-->
+        <!--        <img src=th:text=${album.artist} alt=""/>-->
+        <!--    </p>-->
+        </div>
+        <div>
+            <form method="POST" action="/albums">
+                Title: <input name="title"/>
+                Artist: <input name="artist"/>
+                SongCount: <input name="songCount"/>
+                Length: <input name="length"/>
+                <input type="submit" />
+            </form>
+        </div>
+</body>
+</html>
