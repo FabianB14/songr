@@ -12,8 +12,4 @@ public class SongController {
     @Autowired
     AlbumRepository albumRepository;
 
-//    @PostMapping("/album")
-//    public String addSongs(String title, int length, int trackNumber){
-//
-//    }
 }
