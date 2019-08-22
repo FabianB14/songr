@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album</title>
+</head>
+<body>
+    <h1 th:text="${album.title}"></h1>
+    <div th:each="song : ${album.songs}" >
+        <h3 th:text="${song.title}"></h3>
+        <p th:text="${song.length}"></p>Seconds long
+        <p th:text="${song.trackNumber}"></p> Number track.
+    </div>
+    <form method="POST" th:action="${'/album/'+ album.id}" >
+        <div class="for-group">
+            <label for="title">Title:</label>
+            <input id="title" name="title"/>
+        </div>
+        <div class="for-group">
+            <label for="trackNumber">Track Number:</label>
+            <input id="trackNumber"name="trackNumber"/>
+        </div>
+        <div class="for-group">
+            <label for="length of song">Length of Song:</label>
+            <input id="length of song" name="length"/>
+        </div>
+        <div class="for-group">
+            <input type="submit" />
+        </div>
+    </form>
+</body>
+</html>

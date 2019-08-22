@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>All Albums</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <h1>All Albums</h1>
 
         <div th:each="album : ${albums}" class="album">
             <h3 th:text="${album.title}"></h3>
+
+            <img th:src="${album.imageUrl}" />
+            <a th:href="@{'album/'+album.id}" th:text="${album.title}">Title link</a>
+            </p>
             <p>
-                Staring <span th:text="${album.artist}"></span>
+                By <span th:text="${album.artist}"></span>
             </p>
             <p>
                 Number of songs <span th:text="${album.songCount}"></span>
@@ -18,18 +23,32 @@
             <p>
                 Length of album <span th:text="${album.length}"></span>
             </p>
-        <!--    <p>-->
-        <!--        <lable>Staring</lable>-->
-        <!--        <img src=th:text=${album.artist} alt=""/>-->
-        <!--    </p>-->
         </div>
         <div>
-            <form method="POST" action="/albums">
-                Title: <input name="title"/>
-                Artist: <input name="artist"/>
-                SongCount: <input name="songCount"/>
-                Length: <input name="length"/>
+            <form method="POST" action="/albums" >
+                <div class="for-group">
+               <label for="title">Title:</label>
+                <input id="title" name="title"/>
+                </div>
+                <div class="for-group">
+                <label for="Artist">Artist:</label>
+                <input id="artist"name="artist"/>
+                </div>
+                    <div class="for-group">
+                <label for="songCount">Number of Songs:</label>
+                <input id="songCount" name="songCount"/>
+                    </div>
+                        <div class="for-group">
+                <label for="length">Length of Album:</label>
+                <input id="length" name="length"/>
+                        </div>
+                            <div class="for-group">
+                <label for="imageUrl">Picture</label>
+                <input id="imageUrl" name="imageUrl">
+                            </div>
+                                <div class="for-group">
                 <input type="submit" />
+                                </div>
             </form>
         </div>
 </body>
