@@ -12,7 +12,7 @@
             <h3 th:text="${album.title}"></h3>
 
             <img th:src="${album.imageUrl}" />
-            <a th:href="@{'album/'+album.id}" th:text="${album.title}">Title link</a>
+            <a th:href="${'/album/'+ album.id}" th:text="${album.title}">Title link</a>
             </p>
             <p>
                 By <span th:text="${album.artist}"></span>
